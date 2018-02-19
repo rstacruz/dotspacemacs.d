@@ -1,6 +1,6 @@
-# Spacemacs
+# .spacemacs.d
 
-> Rico (@rstacruz)'s Spacemacs customizations
+> Rico ([@rstacruz](https://github.com/rstacruz))'s Spacemacs customizations
 
 Diff this with your own spacemacs config to see what I've changed!
 
