@@ -46,7 +46,12 @@ This function should only modify configuration layer settings."
       (auto-completion :variables
         ;; Make auto-completions show up immediately
         auto-completion-complete-with-key-sequence-delay 0.01
-        auto-completion-idle-delay 0.01)
+        auto-completion-idle-delay 0.2
+        ;; Don't complete with return key.
+        ;; (Use C-j and C-k to cycle, C-l to complete)
+        auto-completion-return-key-behavior nil
+        auto-completion-tab-key-behavior 'cycle
+        )
       (ranger :variables
         ;; Show more panes
         ranger-parent-depth 2
@@ -480,7 +485,6 @@ before packages are loaded."
 
   ;; Keys: Ctrl+P for finding files in a project
   ;; (global-set-key (kbd "C-p" 'helm-projectile))
-  (define-key evil-insert-state-map (kbd "C-p") 'helm-projectile)
   (define-key evil-normal-state-map (kbd "C-p") 'helm-projectile)
 
   ;; Use 2 spaces for indentation by default
