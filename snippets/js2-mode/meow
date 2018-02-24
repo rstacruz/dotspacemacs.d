@@ -1,0 +1,24 @@
+# -*- mode: snippet -*-
+# name: require('meow')(...)
+# key: meow
+# --
+#!/usr/bin/env node
+const cli = require('meow')(\`
+  Usage:
+  $ ${1:yourapp}
+
+  Options:
+  -h, --help       show usage information
+  -v, --version    print version info and exit
+\`, {
+  boolean: [
+    'help',
+    'version'
+  ],
+  alias: {
+    h: 'help',
+    v: 'version'
+  }
+})
+
+console.log(cli.flags, cli.input)

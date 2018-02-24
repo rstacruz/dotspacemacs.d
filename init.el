@@ -94,7 +94,6 @@ This function should only modify configuration layer settings."
       emacs-lisp
       neotree
       syntax-checking
-      ;; spell-checking
       )
 
    ;; List of additional packages that will be installed without being
@@ -379,7 +378,7 @@ It should only modify the values of Spacemacs settings."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 90
+   dotspacemacs-inactive-transparency 95
 
    ;; If non-nil show the titles of transient states. (default t)
    dotspacemacs-show-transient-state-title t
@@ -489,7 +488,14 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq-default spaceline-purpose-off-p nil)
 
   ;; Magit fullscreen
-  (setq-default git-magit-status-fullscreen t))
+  (setq-default git-magit-status-fullscreen t)
+
+  (setq-default
+    ;; Dvorak mode for avy
+    avy-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n ?s ?p ?y ?f ?g ?c ?r)
+    ;; don't shift text around
+    avy-style 'at-full)
+  )
 
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
