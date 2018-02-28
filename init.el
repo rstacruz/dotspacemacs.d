@@ -197,7 +197,7 @@ This function should only modify configuration layer settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-    dotspacemacs-themes '(exotica jbeans gotham madhat2r omtose-darker dakrone bubbleberry gruvbox-dark-hard)
+   dotspacemacs-themes '(madhat2r exotica jbeans gotham omtose-darker dakrone bubbleberry gruvbox-dark-hard)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `vim-powerline' and `vanilla'. The first three
