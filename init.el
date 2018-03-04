@@ -57,7 +57,7 @@ This function should only modify configuration layer settings."
         ;; Syntax highlighting in preview (`zi` to toggle)
         ranger-show-literal nil)
       (deft :variables
-        deft-directory "~/Notes"
+        deft-directory "~/Notes/2017"
         deft-default-extension "md"
         deft-recursive t
         deft-extensions '("md" "org"))
@@ -546,6 +546,9 @@ before packages are loaded."
 
   ;; SPC o n - orgnotes
   (spacemacs/set-leader-keys "on" 'dotspacemacs/user-edit-notes)
+
+  ;; SPC o n - deft (like `SPC a n' but faster)
+  (spacemacs/set-leader-keys "od" 'deft-find-file)
 
   ;; Supress `~' from being shown in empty lines
   (global-vi-tilde-fringe-mode)
