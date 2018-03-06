@@ -550,9 +550,6 @@ before packages are loaded."
   ;; SPC o n - deft (like `SPC a n' but faster)
   (spacemacs/set-leader-keys "od" 'deft-find-file)
 
-  ;; Supress `~' from being shown in empty lines
-  (global-vi-tilde-fringe-mode)
-
   ;; Ranger: use `-' to enter Ranger mode. Unlike the Ranger default,
   ;; this one will enter "ranger" mode and not "deer" mode
   (define-key evil-normal-state-map (kbd "-") 'ranger)
