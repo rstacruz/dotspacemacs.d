@@ -71,9 +71,7 @@ This function should only modify configuration layer settings."
                                    "elixir" "ruby" "css")
         ;; Don't style the code blocks with courier new or whatever
         markdown-fontify-code-blocks-natively t)
-      (shell :variables
-        ;; Use eshell instead of bash/zsh
-        shell-default-shell 'eshell)
+      shell
       (org :variables
         ;; Enable github flavored markdown
         org-enable-github-support t
@@ -108,7 +106,8 @@ This function should only modify configuration layer settings."
                                         prettier-js
                                         dtrt-indent
                                         xterm-frobs
-                                        github-modern-theme
+                                        github-theme
+                                        basic-theme
                                         )
 
    ;; A list of packages that cannot be updated.
@@ -321,7 +320,7 @@ This function should only modify configuration layer settings."
 
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
-   dotspacemacs-which-key-delay 0.1
+   dotspacemacs-which-key-delay 0.4
 
    ;; Which-key frame position. Possible values are `right', `bottom' and
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
@@ -488,8 +487,14 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  ;; Remove `unix' from modeline
+  (spaceline-toggle-buffer-encoding-abbrev-off)
+
   ;; Make fish play better with ansi-term
   (add-hook 'term-mode-hook 'spacemacs/toggle-truncate-lines-on)
+
+  ;; Make flycheck check less frequently, to save CPU
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
 
   ;; Natural title bar: prettier title bar in the GUI.
   ;; Requires a recent version of emacs-plus on OSX.
