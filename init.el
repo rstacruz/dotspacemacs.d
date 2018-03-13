@@ -119,6 +119,9 @@ This function should only modify configuration layer settings."
                                       ;; Slows down the terminal. Turning this off,
                                       ;; though, removes clipboard support.
                                       pbcopy
+                                      ;; I hate tern
+                                      tern
+                                      company-tern
                                       )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
@@ -208,7 +211,7 @@ This function should only modify configuration layer settings."
    ;; to create your own spaceline theme. Value can be a symbol or list with\
    ;; additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-    dotspacemacs-mode-line-theme '(spacemacs
+    dotspacemacs-mode-line-theme '(custom
                                     :separator wave
                                     :separator-scale 1.4)
 
@@ -587,6 +590,15 @@ before packages are loaded."
   ;; Disable lockfiles
   (setq create-lockfiles nil)
   )
+
+(defun spaceline-custom-theme (&rest additional-segments)
+    "My custom spaceline theme.
+See: https://github.com/syl20bnr/spacemacs/blob/develop/doc/DOCUMENTATION.org#custom-spaceline-theme"
+    (spaceline-compile
+      `(buffer-id (major-mode :when active) (minor-modes :when active))
+      `((line-column :separator " | " :priority 3 :when active)
+        ,@additional-segments))
+    (setq-default mode-line-format '("%e" (:eval (spaceline-ml-main)))))
 
 (defun dotspacemacs/reset-font ()
   "Resets the fonts."
