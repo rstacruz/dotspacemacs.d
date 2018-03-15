@@ -71,7 +71,8 @@ This function should only modify configuration layer settings."
                                    "elixir" "ruby" "css")
         ;; Don't style the code blocks with courier new or whatever
         markdown-fontify-code-blocks-natively t)
-      shell
+      (shell :variables
+        shell-default-shell 'eshell)
       (org :variables
         ;; Enable github flavored markdown
         org-enable-github-support t
@@ -569,7 +570,10 @@ before packages are loaded."
   (spacemacs/set-leader-keys "od" 'deft-find-file)
 
   ;; SPC o t - open terminal here (like `SPC a s t' but faster)
-  (spacemacs/set-leader-keys "ot" 'ansi-term)
+  (spacemacs/set-leader-keys "ot" 'multi-term)
+
+  ;; SPC " - open multiterm (just like SPC ')
+  (spacemacs/set-leader-keys "\"" 'spacemacs/shell-pop-multiterm)
 
   ;; SPC o r - rename buffer (useful for naming terminals)
   (spacemacs/set-leader-keys "or" 'rename-buffer)
