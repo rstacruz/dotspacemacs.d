@@ -64,7 +64,7 @@ This function should only modify configuration layer settings."
         deft-extensions '("md" "org"))
       (markdown :variables
         ;; Open in marker editor (or whatever is available)
-        markdown-open-command "xdg-open"
+        markdown-open-command "open"
         ;; Use vmd (`npm install -g vmd')
         markdown-live-preview-engine 'vmd
         ;; MMM modes
@@ -300,7 +300,7 @@ This function should only modify configuration layer settings."
    ;; auto-save the file in-place, `cache' to auto-save the file to another
    ;; file stored in the cache directory and `nil' to disable auto-saving.
    ;; (default 'cache)
-   dotspacemacs-auto-save-file-location 'cache
+   dotspacemacs-auto-save-file-location nil
 
    ;; Maximum number of rollback slots to keep in the cache. (default 5)
    dotspacemacs-max-rollback-slots 5
